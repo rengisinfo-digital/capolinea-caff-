@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pill: 'CANTINA & COCKTAIL DINNER',
       title: "Le Grandi Cantine Marchigiane & Serate d'Autore",
       desc: 'Dall\'aperitivo al dopocena, il Capolinea accompagna ogni piatto con una selezione curata delle migliori etichette del territorio — <strong class="font-medium text-capolinea-goldLight">Podere Santa Lucia, Velenosi, Cantina d\'Ercoli, Il Conte Villa Prandone e Cherri d\'Acquaviva</strong> — insieme a Cocktail Dinner ed eventi esclusivi nel cuore di Fermo.',
-      img: ASSET_BASE + '2024-01-07_20-34-17_UTC.webp',
+      img: ASSET_BASE + '2023-01-13_17-54-26_UTC.webp',
     },
     {
       pill: 'EVENTI PRIVATI & RICORRENZE',
