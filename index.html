@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capolinea Caffè &amp; Ristorante | Fermo — Dal Mattino alla Sera</title>
+  <meta name="description" content="Capolinea Caffè & Ristorante nel cuore storico di Fermo (Largo Temistocle Calzecchi Onesti, 2). Colazioni artigianali, cucina marchigiana di carne e pesce, aperitivi e serate." />
+
+  <!-- Google Fonts: Cormorant Garamond (High-Contrast Editorial Serif) & Plus Jakarta Sans (Clean Geometric Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN configurato con la Palette estratta dal Logo -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            capolinea: {
+              gold: '#EAA832',
+              goldLight: '#F5C76B',
+              goldDark: '#C8891E',
+              burgundy: '#4A0709',
+              burgundyDeep: '#2B0304',
+              black: '#000000',
+              charcoal: '#111111',
+              ink: '#222222',
+              muted: '#6E6E6E',
+              ivory: '#FAF8F5',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-white text-capolinea-charcoal antialiased selection:bg-capolinea-gold selection:text-black">
+
+  <!-- ========================================================================
+       STICKY HEADER BAR (Replica fedele di Screenshot 17.54.00 & 17.55.23)
+       ======================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-black text-white h-[84px] border-b border-white/10 transition-colors duration-300">
+    <div class="max-w-[1600px] mx-auto h-full pl-5 sm:pl-10 lg:pl-14 pr-0 flex items-center justify-between">
+      
+      <!-- Brand Lockup Left -->
+      <a href="#hero" class="flex items-center gap-3.5 group focus:outline-none" aria-label="Capolinea Caffè & Ristorante Home">
+        <img
+          src="assets/images/logo.jpg"
+          alt="Logo Capolinea Caffè Ristorante"
+          class="w-11 h-11 rounded-full object-cover border border-capolinea-gold/50 transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="text-center leading-none">
+          <span class="block text-[9px] tracking-[0.28em] uppercase text-white/75 font-light mb-0.5">Fermo · Marche</span>
+          <span class="block font-serif text-2xl sm:text-[27px] tracking-[0.08em] font-normal text-white">CAPOLINEA</span>
+          <span class="block text-[8.5px] tracking-[0.26em] uppercase text-capolinea-gold font-medium mt-0.5">Caffè &amp; Ristorante</span>
+        </div>
+      </a>
+
+      <!-- Right Controls: Language, Phone, Divider, Hamburger Box, Pentagon Ribbon CTA -->
+      <div class="flex items-center h-full">
+        <!-- Language Indicator -->
+        <div class="hidden xl:flex items-center text-[13px] tracking-[0.1em] text-white/70 font-light pr-8">
+          <span class="text-white font-normal">IT</span>
+          <span class="mx-2 text-white/25">/</span>
+          <a href="#specialita" class="hover:text-capolinea-gold transition-colors">MENU</a>
+        </div>
+
+        <!-- Phone Number -->
+        <a
+          href="tel:+393341574995"
+          class="hidden md:flex items-center text-[13.5px] tracking-[0.08em] text-white hover:text-capolinea-gold transition-colors px-6 lg:px-10 h-full"
+        >
+          TEL. (+39) 334 157 4995
+        </a>
+
+        <!-- Hamburger Menu Trigger inside bordered box -->
+        <button
+          id="menu-toggle"
+          type="button"
+          aria-label="Apri o chiudi il menu di navigazione"
+          aria-expanded="false"
+          class="w-[76px] sm:w-[92px] h-full border-l border-white/20 flex flex-col items-center justify-center gap-[6.5px] hover:bg-white/5 transition-colors focus:outline-none"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Signature Pentagon/Chevron Protruding Gold CTA (Screenshot 17.54.00) -->
+        <a
+          href="#prenota"
+          class="header-ribbon-cta px-5 sm:px-8 lg:px-9 flex items-center justify-center text-[12px] sm:text-[13px] font-medium tracking-[0.1em] uppercase pb-4"
+        >
+          PRENOTA ORA
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       FULL-SCREEN DARK ACCORDION NAVIGATION OVERLAY (Screenshot 17.55.23)
+       ======================================================================== -->
+  <div
+    id="nav-overlay"
+    class="nav-overlay fixed inset-0 top-[84px] z-40 bg-black text-white overflow-y-auto"
+    aria-hidden="true"
+  >
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 py-10 flex flex-col justify-between min-h-[calc(100vh-84px)]">
+      <nav aria-label="Menu principale a schermo intero" class="border-t border-white/15">
+        
+        <!-- Row 1 -->
+        <div class="nav-overlay-row">
+          <a href="#atmosfera" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>L'ATMOSFERA &amp; STORIA</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="nav-overlay-row">
+          <a href="#momenti" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>COLAZIONE, PRANZO &amp; APERITIVO</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="nav-overlay-row">
+          <a href="#specialita" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>LE NOSTRE SPECIALITÀ &amp; MENU</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="nav-overlay-row">
+          <a href="#cantina-eventi" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>CANTINA MARCHIGIANA &amp; CENA SPETTACOLO</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="nav-overlay-row">
+          <a href="#materia-prima" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>PASTA FRESCA &amp; PASTICCERIA ARTIGIANALE</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 6 -->
+        <div class="nav-overlay-row">
+          <a href="#dove-siamo" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>DOVE SIAMO A FERMO</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 7 -->
+        <div class="nav-overlay-row">
+          <a href="#instagram" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light">
+            <span>GALLERIA INSTAGRAM</span>
+            <span class="text-xl font-light text-capolinea-gold">+</span>
+          </a>
+        </div>
+
+        <!-- Row 8 -->
+        <div class="nav-overlay-row">
+          <a href="#prenota" class="nav-overlay-link flex items-center justify-between py-5 sm:py-6 text-sm sm:text-[15px] tracking-[0.14em] uppercase font-light text-capolinea-gold">
+            <span>PRENOTA UN TAVOLO / CONTATTI</span>
+            <span class="text-xl font-light">→</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Bottom Quick Info inside Overlay -->
+      <div class="pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-xs tracking-[0.12em] uppercase text-white/60">
+        <div>
+          <span class="text-capolinea-gold block mb-1">Indirizzo</span>
+          Largo Temistocle Calzecchi Onesti, 2 — 63900 Fermo (FM)
+        </div>
+        <div>
+          <span class="text-capolinea-gold block mb-1">Prenotazioni &amp; Info</span>
+          <a href="tel:+393341574995" class="text-white hover:text-capolinea-gold transition-colors">+39 334 157 4995</a>
+        </div>
+        <div>
+          <span class="text-capolinea-gold block mb-1">Social</span>
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-capolinea-gold transition-colors">@capolinea_ristorante</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION (Replica fedele di Screenshot 17.54.00)
+         ====================================================================== -->
+    <section id="hero" class="relative w-full h-screen min-h-[680px] flex items-center justify-center overflow-hidden bg-capolinea-burgundyDeep pt-[84px]">
+      
+      <!-- Slideshow Immersivo (Alterna Piatto Iconico in Studio, Interno Storico a Volte, e Tartare Gourmet) -->
+      <div id="hero-slides" class="absolute inset-0 z-0">
+        <!-- Slide 1: Piatto Iconico Studio Shot (5/5) -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100" data-index="0">
+          <img
+            src="assets/images/2026-07-04_18-27-07_UTC.jpg"
+            alt="Mezze maniche d'autore con pecorino e basilico fresco al Capolinea Caffè Fermo"
+            class="w-full h-full object-cover object-center scale-105 transition-transform duration-[6000ms]"
+          />
+        </div>
+        <!-- Slide 2: Interno Storico Volte a Mattoni & Bancone Caffè (4.5/5) -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0" data-index="1">
+          <img
+            src="assets/images/2021-12-17_02-54-55_UTC.jpg"
+            alt="Interno storico con volte a mattoni e bancone caffetteria Capolinea Fermo"
+            class="w-full h-full object-cover object-center scale-105 transition-transform duration-[6000ms]"
+          />
+        </div>
+        <!-- Slide 3: Tartare Gourmet con Corallo (5/5) -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0" data-index="2">
+          <img
+            src="assets/images/2025-02-13_21-49-22_UTC.webp"
+            alt="Tartare di scottona gourmet al Capolinea Ristorante Fermo"
+            class="w-full h-full object-cover object-center scale-105 transition-transform duration-[6000ms]"
+          />
+        </div>
+      </div>
+
+      <!-- Dark Editorial Overlay Scrim -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/55 via-black/40 to-black/75"></div>
+
+      <!-- Central Brand Lockup & Headline (Screenshot 17.54.00 proportions) -->
+      <div class="relative z-20 text-center text-white px-6 max-w-4xl mx-auto flex flex-col items-center mt-8">
+        
+        <!-- Subtle Logo Emblem Badge -->
+        <div class="mb-5 p-1 rounded-full border border-capolinea-gold/40 bg-black/30 backdrop-blur-sm">
+          <img
+            src="assets/images/logo.jpg"
+            alt="Emblema Capolinea"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+        </div>
+
+        <p class="text-sm sm:text-base md:text-lg tracking-[0.26em] uppercase font-light text-white/95 mb-2">
+          CAFFÈ &amp; RISTORANTE
+        </p>
+
+        <h1 class="font-serif text-5xl sm:text-7xl md:text-[84px] lg:text-[96px] font-light tracking-[0.04em] leading-[0.98] uppercase text-white mb-3">
+          CAPOLINEA
+        </h1>
+
+        <p class="font-serif text-xl sm:text-2xl md:text-[28px] tracking-[0.18em] uppercase font-light text-white/95 mb-6">
+          FERMO
+        </p>
+
+        <p class="max-w-xl text-sm sm:text-[15.5px] font-light text-white/85 leading-relaxed mb-9">
+          Dall'aroma del primo espresso al mattino ai sapori autentici della cucina marchigiana di carne e pesce, fino ai cocktail d'autore sotto le volte storiche del centro.
+        </p>
+
+        <!-- Rectangular Gold CTA Button Centered at Bottom -->
+        <a href="#specialita" class="btn-gold">
+          <span>SCOPRI IL MENU</span>
+          <span class="arrow-icon">→</span>
+        </a>
+      </div>
+
+      <!-- Hero Slide Switcher Controls (Bottom Right) -->
+      <div class="absolute bottom-8 right-6 sm:right-12 z-20 flex items-center gap-3">
+        <button type="button" class="hero-dot w-9 h-[2px] bg-capolinea-gold transition-all" data-slide="0" aria-label="Mostra slide Cucina d'Autore"></button>
+        <button type="button" class="hero-dot w-9 h-[2px] bg-white/40 hover:bg-white/70 transition-all" data-slide="1" aria-label="Mostra slide L'Atmosfera del Locale"></button>
+        <button type="button" class="hero-dot w-9 h-[2px] bg-white/40 hover:bg-white/70 transition-all" data-slide="2" aria-label="Mostra slide Tartare Gourmet"></button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 1: L'ATMOSFERA / CHI SIAMO (Replica di Screenshot 17.54.11 & 17.54.29)
+         Asymmetric 2-Column Editorial Split + Overlapping Dual Images
+         ====================================================================== -->
+    <section id="atmosfera" class="py-24 sm:py-32 lg:py-36 bg-white overflow-hidden">
+      <div class="max-w-[1540px] mx-auto pl-6 sm:pl-12 lg:pl-28 pr-6 sm:pr-10 lg:pr-0">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-12 items-center">
+          
+          <!-- Left Editorial Column (5 cols) -->
+          <div class="lg:col-span-5 reveal-up">
+            <p class="text-[16px] sm:text-[17px] text-capolinea-charcoal font-normal mb-5 tracking-[0.01em]">
+              Largo Calzecchi Onesti, 2 · Nel Cuore di Fermo
+            </p>
+
+            <h2 class="font-serif text-4xl sm:text-[44px] lg:text-[48px] text-capolinea-charcoal font-light leading-[1.12] mb-10">
+              L'arte dell'accoglienza tra caffè, cucina e convivialità
+            </h2>
+
+            <div class="space-y-5 text-[15.5px] text-capolinea-ink font-light leading-[1.7] max-w-[440px]">
+              <p>
+                Il <strong class="font-semibold text-black">Capolinea Caffè &amp; Ristorante</strong> nasce dallo spirito autentico dell'ospitalità marchigiana e lo reinterpreta in chiave contemporanea. Situato a pochi passi da Piazza del Popolo, è il <strong class="font-semibold text-black">punto di riferimento a Fermo</strong> per chi cerca un ambiente dinamico, elegante e caloroso in ogni momento della giornata.
+              </p>
+              <p>
+                Sotto il fascino delle <strong class="font-semibold text-black">storiche volte in mattoni a vista</strong> e nella luminosa veranda esterna, l'offerta gastronomica unisce <strong class="font-semibold text-black">colazioni artigianali</strong>, pranzi di lavoro o di piacere, <strong class="font-semibold text-black">aperitivi ricercati</strong> e cene dove la pasta fresca tirata a mano incontra il pescato dell'Adriatico e le migliori carni selezionate.
+              </p>
+            </div>
+
+            <!-- TripAdvisor Social Proof Pill -->
+            <div class="mt-8 pt-6 border-t border-black/10 max-w-[440px] flex items-center gap-4">
+              <div class="w-11 h-11 rounded-full bg-capolinea-burgundy text-capolinea-gold flex items-center justify-center shrink-0 font-serif text-lg font-semibold">
+                ★
+              </div>
+              <p class="text-[13.5px] text-capolinea-ink leading-snug">
+                <strong class="font-semibold text-black">Eccellenza certificata dai nostri ospiti:</strong> tra i locali più apprezzati a Fermo su <span class="underline decoration-capolinea-gold underline-offset-4">TripAdvisor</span> per qualità della cucina e cortesia del servizio.
+              </p>
+            </div>
+
+            <div class="mt-9">
+              <a href="#prenota" class="btn-gold">
+                <span>PRENOTA UN TAVOLO</span>
+                <span class="arrow-icon">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Overlapping Dual-Image Collage (7 cols, flush right on desktop) -->
+          <div class="lg:col-span-7 reveal-up">
+            <div class="editorial-collage">
+              <!-- Large Background Image: Historic Vaulted Bar & Espresso Counter -->
+              <div class="editorial-collage-main">
+                <img
+                  src="assets/images/2021-12-17_02-54-55_UTC.jpg"
+                  alt="Bancone storico e volte in mattoni del Capolinea Caffè a Fermo"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+
+              <!-- Smaller Overlapping Inset Image (Bottom-Left): Warm Dining Table & Gold Lamp -->
+              <div class="editorial-collage-inset">
+                <img
+                  src="assets/images/2023-06-03_18-08-14_UTC.webp"
+                  alt="Dettaglio sala ristorante con lampada dorata e pareti di vino"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 2: I TRE MOMENTI (Replica fedele di Screenshot 17.54.18)
+         3-Column Tall Vertical Cards with Bottom Scrim & Serif Overlay
+         ====================================================================== -->
+    <section id="momenti" class="py-16 sm:py-24 bg-white">
+      <div class="max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14">
+        
+        <!-- 3-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-7 lg:gap-8">
+          
+          <!-- Card 1: Colazione & Pasticceria -->
+          <article class="experience-card group reveal-up">
+            <img
+              src="assets/images/2026-05-27_00-48-22_UTC.jpg"
+              alt="Coppe di tiramisù alle fragole e pasticceria artigianale Capolinea Caffè"
+              class="w-full h-full object-cover"
+            />
+            <div class="experience-card-scrim absolute inset-0"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 sm:p-10 text-center text-white flex flex-col items-center">
+              <h3 class="font-serif text-3xl sm:text-[35px] font-light tracking-wide mb-3">
+                Caffetteria &amp; Dolci
+              </h3>
+              <p class="text-[14.5px] font-light text-white/90 leading-relaxed max-w-[290px] mb-5">
+                Il risveglio nel cuore di Fermo tra miscele selezionate, lievitati fragranti e dolci al cucchiaio fatti in casa.
+              </p>
+              <a
+                href="#specialita"
+                data-filter-target="dolci"
+                class="moment-trigger inline-flex items-center gap-2 text-[14px] font-normal tracking-wide text-white group-hover:text-capolinea-gold transition-colors"
+              >
+                <span>Scopri di più</span>
+                <span class="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Il Ristorante -->
+          <article class="experience-card group reveal-up">
+            <img
+              src="assets/images/2026-07-04_18-27-07_UTC.jpg"
+              alt="Primi piatti della tradizione marchigiana al Capolinea Ristorante"
+              class="w-full h-full object-cover"
+            />
+            <div class="experience-card-scrim absolute inset-0"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 sm:p-10 text-center text-white flex flex-col items-center">
+              <h3 class="font-serif text-3xl sm:text-[35px] font-light tracking-wide mb-3">
+                Il Ristorante
+              </h3>
+              <p class="text-[14.5px] font-light text-white/90 leading-relaxed max-w-[290px] mb-5">
+                Sapori autentici di terra e di mare: dalla sfoglia tirata a mano ai crudi e alle grigliate di carne selezionata.
+              </p>
+              <a
+                href="#specialita"
+                data-filter-target="primi"
+                class="moment-trigger inline-flex items-center gap-2 text-[14px] font-normal tracking-wide text-white group-hover:text-capolinea-gold transition-colors"
+              >
+                <span>Scopri di più</span>
+                <span class="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Aperitivo & Cantina -->
+          <article class="experience-card group reveal-up">
+            <img
+              src="assets/images/2024-01-07_20-34-17_UTC.webp"
+              alt="Atmosfera serale con calici di vino e lume di candela al Capolinea"
+              class="w-full h-full object-cover"
+            />
+            <div class="experience-card-scrim absolute inset-0"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 sm:p-10 text-center text-white flex flex-col items-center">
+              <h3 class="font-serif text-3xl sm:text-[35px] font-light tracking-wide mb-3">
+                Aperitivo &amp; Cantina
+              </h3>
+              <p class="text-[14.5px] font-light text-white/90 leading-relaxed max-w-[290px] mb-5">
+                Calici delle migliori cantine marchigiane, cocktail d'autore e serate musicali in un'atmosfera vibrante.
+              </p>
+              <a
+                href="#cantina-eventi"
+                class="inline-flex items-center gap-2 text-[14px] font-normal tracking-wide text-white group-hover:text-capolinea-gold transition-colors"
+              >
+                <span>Scopri di più</span>
+                <span class="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Minimal 3-Dash Pagination Indicator (Screenshot 17.54.18) -->
+        <div class="mt-10 flex items-center justify-center gap-3">
+          <span class="w-10 h-[1.5px] bg-capolinea-charcoal"></span>
+          <span class="w-10 h-[1.5px] bg-black/20"></span>
+          <span class="w-10 h-[1.5px] bg-black/20"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 3: LE NOSTRE SPECIALITÀ / MENU SPOTLIGHT (Replica di Screenshot 17.54.43)
+         Large Top-Left Serif Heading + Category Pill + Hours + Right Carousel with Floating Black Circle Button
+         ====================================================================== -->
+    <section id="specialita" class="py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-[1540px] mx-auto pl-6 sm:pl-12 lg:pl-28 pr-6 sm:pr-10 lg:pr-0">
+        
+        <!-- Top-Left Oversized 3-Line Editorial Serif Heading -->
+        <div class="max-w-[680px] mb-12 lg:mb-14 reveal-up">
+          <h2 class="font-serif text-4xl sm:text-5xl lg:text-[54px] font-light text-capolinea-charcoal leading-[1.08]">
+            Sapori autentici tra tradizione marchigiana e creatività d'autore
+          </h2>
+        </div>
+
+        <!-- Category Filter Pills (Interactive switchers styled after Screenshot 17.54.43 black pill) -->
+        <div class="flex flex-wrap items-center gap-2.5 mb-10 reveal-up" role="tablist" aria-label="Categorie del menu">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-category="primi"
+            class="menu-tab-btn px-5 py-2 rounded-full text-[13px] font-normal tracking-wide transition-all bg-black text-white"
+          >
+            Primi &amp; Pasta Fresca
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="mare"
+            class="menu-tab-btn px-5 py-2 rounded-full text-[13px] font-normal tracking-wide transition-all bg-capolinea-ivory text-capolinea-charcoal hover:bg-capolinea-gold/20"
+          >
+            Mare dell'Adriatico
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="carni"
+            class="menu-tab-btn px-5 py-2 rounded-full text-[13px] font-normal tracking-wide transition-all bg-capolinea-ivory text-capolinea-charcoal hover:bg-capolinea-gold/20"
+          >
+            Carni &amp; Tartare
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="dolci"
+            class="menu-tab-btn px-5 py-2 rounded-full text-[13px] font-normal tracking-wide transition-all bg-capolinea-ivory text-capolinea-charcoal hover:bg-capolinea-gold/20"
+          >
+            Dolci &amp; Caffetteria
+          </button>
+        </div>
+
+        <!-- 2-Column Split Below Heading -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+          
+          <!-- Left Column: Hours + Editorial Copy + Selected Dish List (5 cols) -->
+          <div class="lg:col-span-5 pr-0 lg:pr-8 reveal-up">
+            
+            <!-- Gold Clock Icon + Service Hours (Exact match to Screenshot 17.54.43) -->
+            <div class="flex items-center gap-2.5 text-[15px] text-capolinea-charcoal mb-6">
+              <span class="w-5 h-5 rounded-full bg-capolinea-gold/20 text-capolinea-goldDark flex items-center justify-center shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"></path>
+                </svg>
+              </span>
+              <span id="menu-category-hours" class="font-normal">Tutti i giorni · Pranzo 12:00 - 15:00 · Cena 19:30 - 23:30</span>
+            </div>
+
+            <!-- Dynamic Category Description -->
+            <div id="menu-category-copy" class="space-y-4 text-[15px] text-capolinea-ink font-light leading-[1.68] mb-8">
+              <p>
+                La nostra cucina celebra l'eccellenza della pasta all'uovo marchigiana, dai leggendari <strong class="font-semibold text-black">Maccheroncini e Tagliatelle di Campofilone IGT</strong> ai ravioli chiusi a mano ogni mattina.
+              </p>
+              <p>
+                Sughi lenti della tradizione, funghi porcini, guanciale croccante e pecorino stagionato si alternano a condimenti creativi che valorizzano le materie prime di stagione.
+              </p>
+            </div>
+
+            <!-- Curated Dishes List for the Active Category -->
+            <div id="menu-dishes-list" class="border-t border-black/10 divide-y divide-black/10 mb-8">
+              <!-- Populated dynamically & initialized with Primi -->
+              <div class="py-3.5 flex items-baseline justify-between gap-4 cursor-pointer group" data-dish-index="0">
+                <div>
+                  <h4 class="text-[15px] font-medium text-black group-hover:text-capolinea-goldDark transition-colors">Mezze Maniche del Capolinea</h4>
+                  <p class="text-[13px] text-capolinea-muted font-light">Sugo ricco, funghi, guanciale croccante, pecorino e basilico fresco</p>
+                </div>
+                <span class="text-xs uppercase tracking-widest text-capolinea-goldDark font-medium shrink-0">01</span>
+              </div>
+              <div class="py-3.5 flex items-baseline justify-between gap-4 cursor-pointer group" data-dish-index="1">
+                <div>
+                  <h4 class="text-[15px] font-medium text-black group-hover:text-capolinea-goldDark transition-colors">Ravioli Fatti a Mano ai Pistacchi e Guanciale</h4>
+                  <p class="text-[13px] text-capolinea-muted font-light">Sfoglia fresca all'uovo, pomodorino confit, guanciale e granella di pistacchio</p>
+                </div>
+                <span class="text-xs uppercase tracking-widest text-capolinea-muted font-light shrink-0">02</span>
+              </div>
+              <div class="py-3.5 flex items-baseline justify-between gap-4 cursor-pointer group" data-dish-index="2">
+                <div>
+                  <h4 class="text-[15px] font-medium text-black group-hover:text-capolinea-goldDark transition-colors">Maccheroncini di Campofilone IGT al Ragù</h4>
+                  <p class="text-[13px] text-capolinea-muted font-light">Sottilissimi fili d'uovo con ragù tradizionale marchigiano a lenta cottura</p>
+                </div>
+                <span class="text-xs uppercase tracking-widest text-capolinea-muted font-light shrink-0">03</span>
+              </div>
+              <div class="py-3.5 flex items-baseline justify-between gap-4 cursor-pointer group" data-dish-index="3">
+                <div>
+                  <h4 class="text-[15px] font-medium text-black group-hover:text-capolinea-goldDark transition-colors">Tagliatelle ai Funghi Porcini &amp; Ragù</h4>
+                  <p class="text-[13px] text-capolinea-muted font-light">Servite su ceramica decorata a mano con prezzemolo fresco e profumi di bosco</p>
+                </div>
+                <span class="text-xs uppercase tracking-widest text-capolinea-muted font-light shrink-0">04</span>
+              </div>
+            </div>
+
+            <a href="#prenota" class="btn-gold">
+              <span>PRENOTA PER ASSAGGIARE</span>
+              <span class="arrow-icon">→</span>
+            </a>
+          </div>
+
+          <!-- Right Column: Large Dish Carousel with Straddling Black Circle Button (7 cols) -->
+          <div class="lg:col-span-7 relative reveal-up">
+            <div class="relative flex items-center">
+              
+              <!-- Floating Black Circle Prev Button Straddling Left Edge (Screenshot 17.54.43) -->
+              <button
+                id="dish-prev-btn"
+                type="button"
+                aria-label="Piatto precedente"
+                class="hidden sm:flex w-14 h-14 rounded-full bg-black text-white items-center justify-center absolute -left-7 z-20 shadow-xl hover:bg-capolinea-gold hover:text-black transition-colors focus:outline-none"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+              </button>
+
+              <!-- Main Showcase Image Frame + Next Slide Peek -->
+              <div class="w-full grid grid-cols-12 gap-3 items-stretch">
+                <div class="col-span-11 relative aspect-[4/3.2] bg-capolinea-ivory overflow-hidden">
+                  <img
+                    id="dish-showcase-img"
+                    src="assets/images/2026-07-04_18-27-07_UTC.jpg"
+                    alt="Piatto selezionato Capolinea Ristorante"
+                    class="w-full h-full object-cover transition-all duration-700"
+                  />
+                  <!-- Subtle Bottom Dish Caption Bar -->
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8 flex items-end justify-between text-white">
+                    <div>
+                      <span id="dish-showcase-tag" class="text-[11px] uppercase tracking-[0.2em] text-capolinea-gold block mb-1">Primi &amp; Pasta Fresca · 01 / 04</span>
+                      <h3 id="dish-showcase-title" class="font-serif text-2xl sm:text-3xl font-light">Mezze Maniche del Capolinea</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Peek of Next Slide on the Far Right Edge (Exact detail from Screenshot 17.54.43) -->
+                <div class="col-span-1 relative overflow-hidden bg-capolinea-ivory cursor-pointer group" id="dish-next-peek" title="Prossimo piatto">
+                  <img
+                    id="dish-peek-img"
+                    src="assets/images/2022-09-16_11-45-49_UTC.webp"
+                    alt="Anteprima prossimo piatto"
+                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                    <span class="w-9 h-9 rounded-full bg-black/80 text-white flex items-center justify-center text-sm">›</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Mobile Prev/Next Controls -->
+            <div class="flex sm:hidden items-center justify-end gap-3 mt-4 pr-6">
+              <button type="button" id="dish-prev-mobile" class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center">‹</button>
+              <button type="button" id="dish-next-mobile" class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center">›</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 4: FULL-BLEED BURGUNDY PROMOTIONAL / EVENT BANNER (Screenshot 17.54.23)
+         Left Circular Translucent Arrows + Vertical Gold Line + White Pill + Serif Title
+         ====================================================================== -->
+    <section id="cantina-eventi" class="py-6 bg-white">
+      <div class="relative w-full min-h-[580px] bg-capolinea-burgundy overflow-hidden flex items-center">
+        
+        <!-- Background Image with Rich Burgundy-Espresso Editorial Multiply Layer -->
+        <div class="absolute inset-0 z-0">
+          <img
+            id="banner-slide-img"
+            src="assets/images/2024-01-07_20-34-17_UTC.webp"
+            alt="Calici di vino e atmosfera serale al Capolinea Fermo"
+            class="w-full h-full object-cover object-center opacity-35 mix-blend-luminosity scale-105 transition-all duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-capolinea-burgundyDeep via-capolinea-burgundy/95 to-capolinea-burgundy/50"></div>
+        </div>
+
+        <!-- Content Container with Left Circular Buttons & Vertical Gold Line (Screenshot 17.54.23) -->
+        <div class="relative z-10 max-w-[1520px] w-full mx-auto px-6 sm:px-12 lg:px-16 py-16 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10">
+          
+          <!-- Left Vertically Stacked Translucent Circle Arrow Buttons -->
+          <div class="flex sm:flex-col items-center gap-3 shrink-0">
+            <button
+              type="button"
+              id="event-next-btn"
+              aria-label="Esperienza successiva"
+              class="w-11 h-11 rounded-full bg-white/25 hover:bg-capolinea-gold text-white hover:text-black flex items-center justify-center backdrop-blur-sm transition-colors"
+            >
+              <span>→</span>
+            </button>
+            <button
+              type="button"
+              id="event-prev-btn"
+              aria-label="Esperienza precedente"
+              class="w-11 h-11 rounded-full bg-white/25 hover:bg-capolinea-gold text-white hover:text-black flex items-center justify-center backdrop-blur-sm transition-colors"
+            >
+              <span>←</span>
+            </button>
+          </div>
+
+          <!-- Vertical Gold Accent Line (`2px` #EAA832) + Indented Content Stack -->
+          <div class="border-l-2 border-capolinea-gold pl-6 sm:pl-9 max-w-[540px] text-white">
+            
+            <!-- Solid White Pill Badge -->
+            <span id="event-pill" class="inline-block bg-white text-black text-[11px] font-medium uppercase tracking-[0.08em] px-4 py-1.5 rounded-full mb-5">
+              CANTINA &amp; COCKTAIL DINNER
+            </span>
+
+            <!-- Editorial Serif White Heading -->
+            <h2 id="event-title" class="font-serif text-4xl sm:text-[44px] font-light leading-[1.12] text-white mb-5">
+              Le Grandi Cantine Marchigiane &amp; Serate d'Autore
+            </h2>
+
+            <!-- Body Copy -->
+            <p id="event-description" class="text-[15px] font-light text-white/90 leading-[1.68] mb-8">
+              Dall'aperitivo al dopocena, il Capolinea accompagna ogni piatto con una selezione curata delle migliori etichette del territorio — <strong class="font-medium text-capolinea-goldLight">Podere Santa Lucia, Velenosi, Cantina d'Ercoli, Il Conte Villa Prandone e Cherri d'Acquaviva</strong> — insieme a Cocktail Dinner ed eventi esclusivi nel cuore di Fermo.
+            </p>
+
+            <!-- Rectangular Solid White CTA Button -->
+            <a href="#prenota" class="btn-white">
+              <span>RICHIEDI DISPONIBILITÀ</span>
+              <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 5: SECONDA SEZIONE EDITORIALE CON DOPPIA IMMAGINE (Screenshot 17.55.04)
+         Left Editorial Column + Sub-section ("Dicono di noi su TripAdvisor") + Right Overlapping Dual Images
+         ====================================================================== -->
+    <section id="materia-prima" class="py-24 sm:py-32 lg:py-36 bg-white overflow-hidden">
+      <div class="max-w-[1540px] mx-auto pl-6 sm:pl-12 lg:pl-28 pr-6 sm:pr-10 lg:pr-0">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-12 items-center">
+          
+          <!-- Left Column (5 cols) -->
+          <div class="lg:col-span-5 reveal-up">
+            <h2 class="font-serif text-4xl sm:text-[44px] lg:text-[48px] text-capolinea-charcoal font-light leading-[1.12] mb-8">
+              Materia Prima Selezionata, Crudi &amp; Pasticceria
+            </h2>
+
+            <div class="space-y-4 text-[15.5px] text-capolinea-ink font-light leading-[1.68] max-w-[440px]">
+              <p>
+                Ogni portata al Capolinea nasce dal rispetto per la stagionalità e dalla ricerca dell'equilibrio visivo e gustativo: dalle <strong class="font-semibold text-black">tartare di scottona battute al coltello</strong> agli <strong class="font-semibold text-black">scampi e astici dell'Adriatico</strong>, fino alle polpette dorate servite sulle tradizionali ceramiche dipinte a mano.
+              </p>
+              <p class="italic font-serif text-lg text-capolinea-charcoal pt-1">
+                "Un'esperienza che unisce il calore di casa all'eleganza del piatto."
+              </p>
+            </div>
+
+            <!-- Secondary Bold Sub-section (Modeled directly on "La Cabane by Dolce&Gabbana" in Screenshot 17.55.04) -->
+            <div class="mt-10 pt-8 border-t border-black/10 max-w-[440px]">
+              <h3 class="text-[19px] font-semibold text-black mb-3">
+                L'Eccellenza nelle Recensioni TripAdvisor
+              </h3>
+              <p class="text-[15px] text-capolinea-ink font-light leading-[1.68]">
+                Chi sceglie il <strong class="font-semibold text-black">Capolinea Caffè a Fermo</strong> racconta un luogo capace di sorprendere tanto per un cappuccino cremoso al mattino quanto per una cena romantica di pesce o carne: porzioni generose, presentazioni curate nei minimi dettagli e un'atmosfera sempre viva.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Overlapping Dual Food Images (7 cols) -->
+          <div class="lg:col-span-7 reveal-up">
+            <div class="editorial-collage">
+              <!-- Large Right Image: Gourmet Tartare on Hand-Painted Plate (5/5) -->
+              <div class="editorial-collage-main">
+                <img
+                  src="assets/images/2025-02-13_21-49-22_UTC.webp"
+                  alt="Tartare di manzo gourmet su piatto in ceramica artigianale"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+
+              <!-- Smaller Overlapping Inset Image (Bottom-Left): Paccheri agli Scampi (4.5/5) -->
+              <div class="editorial-collage-inset">
+                <img
+                  src="assets/images/2023-05-17_12-50-29_UTC.webp"
+                  alt="Paccheri agli scampi dell'Adriatico e pomodorini"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 6: DOVE SIAMO / STYLIZED MAP & AWARDS (Replica di Screenshot 17.54.56)
+         Full-Width Light Grayscale Stylized Map + Gold Pin Badge + Gold Dots Cluster
+         ====================================================================== -->
+    <section id="dove-siamo" class="bg-white">
+      <div class="relative w-full min-h-[520px] stylized-map-bg overflow-hidden flex items-center py-20">
+        
+        <!-- Decorative SVG Architectural Map Roads of Fermo Historic Center -->
+        <svg class="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <path d="M-100 420 C 280 390, 560 260, 880 300 C 1150 330, 1320 220, 1550 190" stroke="#FFFFFF" stroke-width="18"/>
+          <path d="M220 -50 C 340 180, 520 320, 790 650" stroke="#FFFFFF" stroke-width="14"/>
+          <path d="M680 -40 C 740 210, 860 350, 1080 640" stroke="#FFFFFF" stroke-width="22"/>
+          <path d="M-60 150 C 380 210, 790 290, 1500 450" stroke="#E5E3DC" stroke-width="8"/>
+          <path d="M480 620 C 650 410, 910 280, 1290 -30" stroke="#FFFFFF" stroke-width="12"/>
+          <!-- Subtle Street Labels like Screenshot 17.54.56 -->
+          <text x="920" y="190" fill="#B5B2A8" font-size="11" letter-spacing="2" transform="rotate(-12 920 190)">PIAZZA DEL POPOLO · FERMO</text>
+          <text x="890" y="420" fill="#B5B2A8" font-size="11" letter-spacing="2" transform="rotate(14 890 420)">LARGO TEMISTOCLE CALZECCHI ONESTI</text>
+          <text x="540" y="130" fill="#B5B2A8" font-size="10" letter-spacing="2">CENTRO STORICO</text>
+        </svg>
+
+        <!-- Central Gold Circular Pin Badge on Map (Right-Center on Desktop) -->
+        <div class="hidden lg:flex flex-col items-center absolute left-[62%] top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div class="w-20 h-20 rounded-full bg-capolinea-gold shadow-2xl flex items-center justify-center border-4 border-white animate-pulse">
+            <img
+              src="assets/images/logo.jpg"
+              alt="Pin Capolinea Fermo"
+              class="w-14 h-14 rounded-full object-cover"
+            />
+          </div>
+          <div class="w-3 h-3 bg-capolinea-gold rotate-45 -mt-1.5 shadow"></div>
+          <span class="mt-2 px-3 py-1 bg-black text-white text-[10px] uppercase tracking-[0.2em]">Capolinea Fermo</span>
+        </div>
+
+        <!-- Left Editorial Overlay Content with Gold Dots Cluster (Screenshot 17.54.56) -->
+        <div class="relative z-10 max-w-[1540px] w-full mx-auto px-6 sm:px-12 lg:px-28">
+          <div class="max-w-[540px] reveal-up">
+            <!-- Decorative Cluster of Gold Dots -->
+            <div class="gold-dots-cluster w-20 h-12 mb-6 opacity-85"></div>
+
+            <p class="text-[16px] text-capolinea-charcoal font-normal mb-3">
+              Dove siamo?
+            </p>
+
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] text-capolinea-charcoal font-light leading-[1.22] mb-4">
+              In Largo Temistocle Calzecchi Onesti 2, a pochi passi da Piazza del Popolo e dal cuore storico di Fermo.
+            </h2>
+
+            <p class="text-[14.5px] text-capolinea-muted font-light mb-8">
+              Comodo parcheggio nelle vicinanze, sala interna climatizzata sotto le volte storiche in mattoni e veranda esterna riscaldata.
+            </p>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Capolinea+Caffe+Largo+Temistocle+Calzecchi+Onesti+2+Fermo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-gold"
+            >
+              <span>APRI IN GOOGLE MAPS</span>
+              <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- "Awards & Highlights" Strip Below Map (Replica di "Awards received" in Screenshot 17.54.56) -->
+      <div class="max-w-[1540px] mx-auto px-6 sm:px-12 lg:px-28 py-16 border-b border-black/10">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <h3 class="font-serif text-3xl sm:text-[34px] font-light text-capolinea-charcoal">
+            Riconoscimenti &amp; Identità
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12">
+            <div>
+              <span class="text-xs uppercase tracking-[0.2em] text-capolinea-goldDark block mb-1">TripAdvisor</span>
+              <p class="font-serif text-xl text-black">Punto di Riferimento a Fermo</p>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-[0.2em] text-capolinea-goldDark block mb-1">Tradizione IGT</span>
+              <p class="font-serif text-xl text-black">Sfoglia &amp; Pasta Fatta a Mano</p>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-[0.2em] text-capolinea-goldDark block mb-1">Territorio</span>
+              <p class="font-serif text-xl text-black">Cantine Doc &amp; Docg Marche</p>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-[0.2em] text-capolinea-goldDark block mb-1">Ospitalità</span>
+              <p class="font-serif text-xl text-black">Colazione · Ristorante · Cocktail</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 7: PRENOTA UN TAVOLO / CONTATTI DIRETTI
+         ====================================================================== -->
+    <section id="prenota" class="py-24 sm:py-28 bg-capolinea-ivory">
+      <div class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20">
+        <div class="bg-white border border-black/10 p-8 sm:p-14 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Info (6 cols) -->
+          <div class="lg:col-span-6">
+            <span class="text-xs uppercase tracking-[0.22em] text-capolinea-goldDark font-medium block mb-3">
+              Prenotazioni &amp; Eventi Privati
+            </span>
+            <h2 class="font-serif text-4xl sm:text-[46px] font-light text-capolinea-charcoal leading-[1.12] mb-5">
+              Riserva il tuo tavolo al Capolinea
+            </h2>
+            <p class="text-[15px] text-capolinea-ink font-light leading-[1.7] mb-8 max-w-lg">
+              Per pranzi, cene romantiche, aperitivi o per organizzare il tuo evento speciale nel centro storico di Fermo, contattaci telefonicamente o compila la richiesta rapida.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-black/10 text-sm">
+              <div>
+                <span class="text-xs uppercase tracking-[0.15em] text-capolinea-muted block mb-1">Telefono Diretto</span>
+                <a href="tel:+393341574995" class="text-lg font-medium text-black hover:text-capolinea-goldDark transition-colors">
+                  +39 334 157 4995
+                </a>
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-[0.15em] text-capolinea-muted block mb-1">Indirizzo</span>
+                <p class="text-black font-normal">Largo T. Calzecchi Onesti, 2<br />63900 Fermo (FM)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive Reservation Form (6 cols) -->
+          <div class="lg:col-span-6">
+            <form id="reservation-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="res-name" class="block text-xs uppercase tracking-[0.12em] text-capolinea-muted mb-1.5">Nome e Cognome</label>
+                  <input type="text" id="res-name" required placeholder="Es. Marco Rossi" class="w-full border border-black/20 px-4 py-3 text-sm focus:outline-none focus:border-capolinea-gold bg-white" />
+                </div>
+                <div>
+                  <label for="res-phone" class="block text-xs uppercase tracking-[0.12em] text-capolinea-muted mb-1.5">Telefono</label>
+                  <input type="tel" id="res-phone" required placeholder="+39 333 ..." class="w-full border border-black/20 px-4 py-3 text-sm focus:outline-none focus:border-capolinea-gold bg-white" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="res-date" class="block text-xs uppercase tracking-[0.12em] text-capolinea-muted mb-1.5">Data</label>
+                  <input type="date" id="res-date" required class="w-full border border-black/20 px-4 py-3 text-sm focus:outline-none focus:border-capolinea-gold bg-white" />
+                </div>
+                <div>
+                  <label for="res-Moment" class="block text-xs uppercase tracking-[0.12em] text-capolinea-muted mb-1.5">Momento</label>
+                  <select id="res-Moment" class="w-full border border-black/20 px-4 py-3 text-sm focus:outline-none focus:border-capolinea-gold bg-white">
+                    <option value="Cena">Cena (19:30 - 23:00)</option>
+                    <option value="Pranzo">Pranzo (12:00 - 14:30)</option>
+                    <option value="Aperitivo">Aperitivo &amp; Cocktail</option>
+                    <option value="Colazione / Evento">Colazione / Evento Privato</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="res-guests" class="block text-xs uppercase tracking-[0.12em] text-capolinea-muted mb-1.5">Ospiti</label>
+                  <select id="res-guests" class="w-full border border-black/20 px-4 py-3 text-sm focus:outline-none focus:border-capolinea-gold bg-white">
+                    <option value="2 Ospiti">2 Ospiti</option>
+                    <option value="3 Ospiti">3 Ospiti</option>
+                    <option value="4 Ospiti">4 Ospiti</option>
+                    <option value="5-8 Ospiti">5 - 8 Ospiti</option>
+                    <option value="Tavolata / Evento">Più di 8 Ospiti</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="res-notes" class="block text-xs uppercase tracking-[0.12em] text-capolinea-muted mb-1.5">Preferenze o Intolleranze (Opzionale)</label>
+                <input type="text" id="res-notes" placeholder="Tavolo interno sotto le volte, veranda esterna, ecc." class="w-full border border-black/20 px-4 py-3 text-sm focus:outline-none focus:border-capolinea-gold bg-white" />
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <button type="submit" class="btn-gold w-full sm:w-auto justify-center">
+                  <span>CONFERMA RICHIESTA</span>
+                  <span class="arrow-icon">→</span>
+                </button>
+                <span id="reservation-feedback" class="text-xs text-capolinea-burgundy font-medium hidden"></span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEZIONE 8: INSTAGRAM 6×2 PHOTO GRID (Replica fedele di Screenshot 17.55.13)
+         "Seguici su Instagram / @capolinea_ristorante" + 12 Curated Square Photos
+         ====================================================================== -->
+    <section id="instagram" class="py-24 sm:py-28 bg-white">
+      <div class="max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14">
+        
+        <!-- Header Row -->
+        <div class="mb-10 reveal-up">
+          <h2 class="font-serif text-3xl sm:text-[38px] font-light text-capolinea-charcoal leading-tight">
+            Seguici su Instagram
+          </h2>
+          <a
+            href="https://www.instagram.com/capolinea_ristorante/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block font-serif text-2xl sm:text-[28px] text-capolinea-muted hover:text-capolinea-goldDark transition-colors mt-0.5"
+          >
+            @capolinea_ristorante
+          </a>
+        </div>
+
+        <!-- 6 Columns × 2 Rows (12 Curated Best Photos — Zero Flyers, Zero Crowd Selfies) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 reveal-up">
+          
+          <!-- 1: Mezze Maniche Studio Shot -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2026-07-04_18-27-07_UTC.jpg" alt="Mezze maniche Capolinea" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 2: Tartare Gourmet -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2025-02-13_21-49-22_UTC.webp" alt="Tartare gourmet con tuile al corallo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 3: Interno Storico Volte & Bar -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2021-12-17_02-54-55_UTC.jpg" alt="Bancone storico e volte a mattoni Capolinea" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 4: Coppa Fragole & Crema -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2026-05-27_00-48-22_UTC.jpg" alt="Coppe dolci alle fragole" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 5: Paccheri agli Scampi -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2023-05-17_12-50-29_UTC.webp" alt="Paccheri agli scampi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 6: Tagliata di Manzo al Rosmarino e Pepe Rosa -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2024-01-21_19-39-30_UTC.webp" alt="Tagliata di manzo al rosmarino e pepe rosa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 7: Cheesecake ai Frutti di Bosco su Maiolica -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2022-09-16_12-26-31_UTC.webp" alt="Cheesecake ai frutti di bosco su maiolica" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 8: Lampada Dorata & Sala Ristorante -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2023-06-03_18-08-14_UTC.webp" alt="Tavolo apparecchiato con lampada dorata" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 9: Polpette Croccanti su Maiolica -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2025-07-12_13-00-03_UTC.webp" alt="Polpette dorate su piatto in maiolica" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 10: Linguine all'Astice -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2023-04-29_13-08-49_UTC.webp" alt="Linguine all'astice" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 11: Tiramisù in Coppa su Maiolica -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2023-09-05_12-10-54_UTC.webp" alt="Tiramisù artigianale in coppa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+          <!-- 12: Ravioli Fatti a Mano -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-capolinea-ivory">
+            <img src="assets/images/2025-02-08_12-47-07_UTC.webp" alt="Ravioli freschi fatti a mano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 text-white text-xs tracking-widest uppercase transition-opacity">Instagram ↗</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       DARK EDITORIAL FOOTER (`#000000` — Replica fedele di Screenshot 17.55.18)
+       ======================================================================== -->
+  <footer class="bg-black text-white pt-16 pb-10">
+    <div class="max-w-[1540px] mx-auto px-6 sm:px-12 lg:px-20">
+      
+      <!-- Top Row: Brand Logo Left + Address/Phone/Email Middle-Left + Social Icons Right -->
+      <div class="pb-12 border-b border-white/15 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+        
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-14">
+          <!-- Brand Lockup -->
+          <a href="#hero" class="flex items-center gap-4">
+            <img
+              src="assets/images/logo.jpg"
+              alt="Logo Capolinea Ristorante"
+              class="w-14 h-14 rounded-full object-cover border border-capolinea-gold/50"
+            />
+            <div class="text-center leading-none">
+              <span class="block text-[9.5px] tracking-[0.28em] uppercase text-white/75 mb-1">Fermo · Marche</span>
+              <span class="block font-serif text-3xl tracking-[0.08em] text-white">CAPOLINEA</span>
+              <span class="block text-[9px] tracking-[0.26em] uppercase text-capolinea-gold mt-1">Caffè &amp; Ristorante</span>
+            </div>
+          </a>
+
+          <!-- Address, Phone & Reservations -->
+          <div class="text-[13.5px] font-light text-white/85 space-y-1 leading-relaxed">
+            <p>Largo Temistocle Calzecchi Onesti, 2 · 63900 Fermo (FM), Italia</p>
+            <p>
+              Prenotazioni e informazioni:
+              <a href="tel:+393341574995" class="text-white hover:text-capolinea-gold transition-colors font-normal">+39 334 157 4995</a>
+            </p>
+            <p>
+              Instagram Direct:
+              <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" class="underline decoration-white/40 hover:text-capolinea-gold transition-colors">@capolinea_ristorante</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Social Media Icons Right (Screenshot 17.55.18) -->
+        <div class="flex items-center gap-6 text-white">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/capolinea_ristorante/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Capolinea" class="hover:text-capolinea-gold transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Capolinea" class="hover:text-capolinea-gold transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+            </svg>
+          </a>
+          <!-- Google Maps -->
+          <a href="https://www.google.com/maps/search/?api=1&query=Capolinea+Caffe+Largo+Temistocle+Calzecchi+Onesti+2+Fermo" target="_blank" rel="noopener noreferrer" aria-label="Mappa Capolinea Fermo" class="hover:text-capolinea-gold transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Middle Row: 2 Columns of Uppercase Links Left + Hours & TripAdvisor Badge Right -->
+      <div class="py-12 border-b border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Navigation Columns (Left 6 cols) -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-8 text-[12.5px] tracking-[0.12em] uppercase font-light">
+          <ul class="space-y-3.5">
+            <li><a href="#atmosfera" class="hover:text-capolinea-gold transition-colors">L'Atmosfera</a></li>
+            <li><a href="#momenti" class="hover:text-capolinea-gold transition-colors">Caffetteria &amp; Pasticceria</a></li>
+            <li><a href="#specialita" class="hover:text-capolinea-gold transition-colors">Il Ristorante</a></li>
+            <li><a href="#cantina-eventi" class="hover:text-capolinea-gold transition-colors">Cantina &amp; Cocktail</a></li>
+          </ul>
+          <ul class="space-y-3.5">
+            <li><a href="#materia-prima" class="hover:text-capolinea-gold transition-colors">Pasta Fresca &amp; Crudi</a></li>
+            <li><a href="#dove-siamo" class="hover:text-capolinea-gold transition-colors">Dove Siamo a Fermo</a></li>
+            <li><a href="#prenota" class="hover:text-capolinea-gold transition-colors">Prenota un Tavolo</a></li>
+            <li><a href="#instagram" class="hover:text-capolinea-gold transition-colors">Galleria Fotografica</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Partner / TripAdvisor & Hours Info (6 cols) -->
+        <div class="lg:col-span-6 flex flex-col sm:flex-row lg:justify-end items-start sm:items-center gap-8">
+          <div class="text-xs tracking-[0.08em] text-white/70 space-y-1.5">
+            <span class="text-capolinea-gold uppercase tracking-[0.18em] block font-medium">Orari di Apertura</span>
+            <p>Colazione &amp; Caffetteria: dalle 07:30</p>
+            <p>Pranzo: 12:00 – 15:00 · Aperitivo &amp; Cena: 18:30 – 00:00</p>
+          </div>
+
+          <div class="border border-white/20 px-5 py-4 flex items-center gap-3.5">
+            <span class="text-capolinea-gold text-2xl">★</span>
+            <div class="text-xs leading-tight">
+              <span class="uppercase tracking-[0.16em] text-white font-medium block">TripAdvisor</span>
+              <span class="text-white/65 font-light">Recensioni Eccellenti · Fermo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Row -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/55 font-light">
+        <p>© 2026 Capolinea Caffè &amp; Ristorante — Largo Temistocle Calzecchi Onesti 2, Fermo (FM). Tutti i diritti riservati.</p>
+        <p class="tracking-widest uppercase text-[11px] text-white/45">Design Ispirato agli Standard Awwwards</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main Interactive Script -->
+  <script src="main.js"></script>
+</body>
+</html>

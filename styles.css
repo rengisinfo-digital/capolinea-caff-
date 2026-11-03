@@ -1,0 +1,262 @@
+/* ==========================================================================
+   CAPOLINEA CAFFÈ & RISTORANTE — FERMO
+   Design System & Editorial Luxury Styles (Awwwards / Kimpton Reference)
+   ========================================================================== */
+
+:root {
+  /* Palette estratta direttamente dal Logo Capolinea */
+  --color-logo-gold: #EAA832;        /* Oro/Ambra primario per CTA, pin, linee d'accento */
+  --color-logo-gold-light: #F5C76B;  /* Riflesso oro chiaro del semicerchio del logo */
+  --color-logo-gold-dark: #C8891E;   /* Ombra bronzo/ambra per hover state */
+  --color-logo-burgundy: #4A0709;    /* Bordeaux/Vino profondo dello sfondo circolare del logo */
+  --color-logo-burgundy-deep: #2B0304;/* Espresso-Bordeaux scuro per sezioni immersive */
+
+  /* Neutri Editoriali (ispirati agli screenshot di riferimento) */
+  --color-black: #000000;            /* Header, Menu Overlay, Footer */
+  --color-charcoal: #111111;         /* Testi primari su fondo chiaro */
+  --color-ink: #222222;              /* Body copy editoriale */
+  --color-muted: #6E6E6E;            /* Sottotitoli, handle social, metadati */
+  --color-white: #FFFFFF;            /* Sfondo principale ad alto respiro (whitespace) */
+  --color-ivory: #FAF8F5;            /* Tonalità calda secondaria per stacchi delicati */
+  --color-border-light: rgba(255, 255, 255, 0.16);
+  --color-border-dark: rgba(17, 17, 17, 0.12);
+
+  /* Font Stacks */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spaziature e Transizioni */
+  --header-height: 84px;
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Reset & Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-white);
+}
+
+/* Tipografia Editoriale */
+.font-editorial {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.font-editorial-regular {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+/* Signature Header Ribbon CTA (Coda pentagonale che sporge sotto la navbar nera) */
+.header-ribbon-cta {
+  position: relative;
+  background-color: var(--color-logo-gold);
+  color: var(--color-black);
+  height: calc(var(--header-height) + 22px);
+  margin-bottom: -22px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), 50% 100%, 0 calc(100% - 22px));
+  transition: background-color 0.35s var(--ease-editorial), transform 0.35s var(--ease-editorial);
+  z-index: 60;
+}
+
+.header-ribbon-cta:hover {
+  background-color: var(--color-logo-gold-light);
+}
+
+/* Bottoni Rettangolari Editoriali (Zero border-radius come negli screenshot) */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background-color: var(--color-logo-gold);
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.05rem 1.85rem;
+  border-radius: 0;
+  transition: background-color 0.35s var(--ease-editorial), transform 0.3s var(--ease-editorial);
+}
+
+.btn-gold:hover {
+  background-color: var(--color-logo-gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-gold .arrow-icon {
+  transition: transform 0.3s var(--ease-editorial);
+}
+
+.btn-gold:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.05rem 1.85rem;
+  border-radius: 0;
+  transition: background-color 0.35s var(--ease-editorial), color 0.35s var(--ease-editorial), transform 0.3s var(--ease-editorial);
+}
+
+.btn-white:hover {
+  background-color: var(--color-logo-gold);
+  color: var(--color-black);
+  transform: translateY(-2px);
+}
+
+/* Hamburger Icon Animations */
+.hamburger-line {
+   display: block;
+  width: 28px;
+  height: 1.5px;
+  background-color: var(--color-white);
+  transition: transform 0.35s var(--ease-editorial), opacity 0.25s ease;
+}
+
+body.menu-open .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+body.menu-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Fullscreen Dark Overlay Navigation (Screenshot 17.55.23) */
+.nav-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.4s var(--ease-editorial), transform 0.4s var(--ease-editorial);
+}
+
+body.menu-open .nav-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-overlay-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  transition: background-color 0.3s ease, padding-left 0.35s var(--ease-editorial);
+}
+
+.nav-overlay-row:hover {
+  background-color: rgba(234, 168, 50, 0.06);
+  padding-left: 0.75rem;
+}
+
+/* Card 3-Colonne Alte (Screenshot 17.54.18) */
+.experience-card {
+  position: relative;
+  aspect-ratio: 3 / 4.05;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.experience-card img {
+  transition: transform 0.9s var(--ease-editorial);
+}
+
+.experience-card:hover img {
+  transform: scale(1.05);
+}
+
+.experience-card-scrim {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.32) 45%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+/* Layout Asimmetrico con Doppia Immagine Sovrapposta (Screenshot 17.54.11, 17.54.29, 17.54.50) */
+.editorial-collage {
+  position: relative;
+  min-height: 640px;
+}
+
+.editorial-collage-main {
+  width: 76%;
+  margin-left: auto;
+  aspect-ratio: 3 / 3.9;
+  overflow: hidden;
+}
+
+.editorial-collage-inset {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 46%;
+  aspect-ratio: 3 / 3.6;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .editorial-collage {
+    min-height: auto;
+    padding-bottom: 2.5rem;
+  }
+  .editorial-collage-main {
+    width: 84%;
+  }
+  .editorial-collage-inset {
+    width: 52%;
+    bottom: 0;
+  }
+}
+
+/* Decorative Gold Dots Pattern (Screenshot 17.54.56 "Where are we?") */
+.gold-dots-cluster {
+  background-image: radial-gradient(var(--color-logo-gold) 2px, transparent 2px);
+  background-size: 12px 12px;
+}
+
+/* Scroll Reveal Animation */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-editorial), transform 0.8s var(--ease-editorial);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stylized Light Map Background (Screenshot 17.54.56) */
+.stylized-map-bg {
+  background-color: #F3F2EE;
+  background-image:
+    linear-gradient(115deg, transparent 46%, rgba(255,255,255,0.9) 46.5%, rgba(255,255,255,0.9) 48.5%, transparent 49%),
+    linear-gradient(25deg, transparent 60%, rgba(255,255,255,0.85) 60.5%, rgba(255,255,255,0.85) 62%, transparent 62.5%),
+    linear-gradient(160deg, transparent 28%, rgba(226, 224, 218, 0.7) 28.5%, rgba(226, 224, 218, 0.7) 30%, transparent 30.5%),
+    radial-gradient(circle at 65% 50%, rgba(234, 168, 50, 0.08) 0%, transparent 45%);
+}
