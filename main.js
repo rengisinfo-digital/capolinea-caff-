@@ -425,38 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     5. RESERVATION FORM INTERACTION
-     ========================================================================== */
-  const resForm = document.getElementById('reservation-form');
-  const resFeedback = document.getElementById('reservation-feedback');
-  const resDateInput = document.getElementById('res-date');
-
-  if (resDateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    resDateInput.value = today;
-  }
-
-  if (resForm) {
-    resForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('res-name')?.value || 'Ospite';
-      const date = document.getElementById('res-date')?.value || '';
-      const moment = document.getElementById('res-Moment')?.value || '';
-      const guests = document.getElementById('res-guests')?.value || '';
-
-      if (resFeedback) {
-        resFeedback.textContent = `Grazie ${name}! Richiesta registrata per ${guests} (${moment} del ${date}). Ti contatteremo a breve o chiamaci al +39 334 157 4995.`;
-        resFeedback.classList.remove('hidden');
-      }
-      resForm.reset();
-      if (resDateInput) {
-        resDateInput.value = new Date().toISOString().split('T')[0];
-      }
-    });
-  }
-
-  /* ==========================================================================
-     6. INTERSECTION OBSERVER SCROLL REVEAL
+     5. INTERSECTION OBSERVER SCROLL REVEAL
      ========================================================================== */
   const revealElements = document.querySelectorAll('.reveal-up');
   if ('IntersectionObserver' in window) {

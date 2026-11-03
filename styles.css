@@ -26,8 +26,14 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spaziature e Transizioni */
-  --header-height: 84px;
+  --header-height: 68px;
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 84px;
+  }
 }
 
 /* Reset & Smooth Scrolling */
@@ -62,9 +68,9 @@ body {
   position: relative;
   background-color: var(--color-logo-gold);
   color: var(--color-black);
-  height: calc(var(--header-height) + 22px);
-  margin-bottom: -22px;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), 50% 100%, 0 calc(100% - 22px));
+  height: calc(var(--header-height) + 20px);
+  margin-bottom: -20px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 50% 100%, 0 calc(100% - 20px));
   transition: background-color 0.35s var(--ease-editorial), transform 0.35s var(--ease-editorial);
   z-index: 60;
 }
@@ -127,15 +133,25 @@ body {
 
 /* Hamburger Icon Animations */
 .hamburger-line {
-   display: block;
-  width: 28px;
+  display: block;
+  width: 22px;
   height: 1.5px;
   background-color: var(--color-white);
   transition: transform 0.35s var(--ease-editorial), opacity 0.25s ease;
 }
 
+@media (min-width: 768px) {
+  .hamburger-line {
+    width: 26px;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 body.menu-open .hamburger-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 body.menu-open .hamburger-line:nth-child(2) {
@@ -143,7 +159,7 @@ body.menu-open .hamburger-line:nth-child(2) {
 }
 
 body.menu-open .hamburger-line:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Fullscreen Dark Overlay Navigation (Screenshot 17.55.23) */
